@@ -5,14 +5,23 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
 
+import java.util.Objects;
+
 public class PlayerLoginBlockEvent implements Listener {
+    private Main plugin;
+
+    public PlayerLoginBlockEvent(Main plugin) {
+        this.plugin = plugin;
+    }
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerLogin(PlayerLoginEvent event) {
-        if(event.getPlayer().getAddress() == null) {
-            System.out.println("onPlayerLogin: address is null");
-        } else {
-            System.out.println("onPlayerLogin: " + event.getPlayer().getAddress().getAddress().getHostAddress());
+        if(event.getPlayer().getAddress() != null) {
+            if (plugin.store.isAddressBlocked(event.getAddress().getHostAddress())) {
+                event.disallow(PlayerLoginEvent.Result.KICK_BANNED, Objects.requireNonNull(plugin.getConfig().getString("ban-msg")));
+            }
         }
-        System.out.println("event adr: " + event.getAddress().getHostAddress());
+        if (plugin.store.isAddressBlocked(event.getAddress().getHostAddress())) {
+            event.disallow(PlayerLoginEvent.Result.KICK_BANNED, Objects.requireNonNull(plugin.getConfig().getString("ban-msg")));
+        }
     }
 }

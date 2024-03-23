@@ -52,7 +52,7 @@ public class AddressStore {
         address = address.split("/")[0];
         int[] a = new int[4];
         for (int i = 0; i < 4; i++) {
-            a[i] = Integer.valueOf(address.split(".")[i]);
+            a[i] = Integer.valueOf(address.split("\\.")[i]);
         }
         return a;
     }
@@ -94,15 +94,15 @@ public class AddressStore {
             System.arraycopy(min, 0, max, 0, 4);
             int mask = 32 - prefix;
             for (int i = 0; i < mask; i++) {
-                int j = i / 8;
-                int k = i % 8;
-                max[j] |= 1 << (7 - k);
+                int octetIndex = 3 - i / 8;
+                int bitIndex = i % 8;
+                max[octetIndex] |= 1 << bitIndex;
             }
             blockedAddressesMin.add(min);
             blockedAddressesMax.add(max);
 
             //! testing
-            System.out.println("address: " + address + " min: " + Arrays.toString(min) + " max: " + Arrays.toString(max));
+            //System.out.println("address: " + address + " min: " + Arrays.toString(min) + " max: " + Arrays.toString(max));
         }
     }
 }

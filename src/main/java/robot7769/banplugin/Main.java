@@ -12,7 +12,7 @@ public final class Main extends JavaPlugin {
         saveDefaultConfig();
         store = new AddressStore(this);
         getCommand("ban-more").setExecutor(new BanCommand(this));
-        getServer().getPluginManager().registerEvents(new PlayerLoginBlockEvent(), this);
+        getServer().getPluginManager().registerEvents(new PlayerLoginBlockEvent(this), this);
     }
 
     @Override
