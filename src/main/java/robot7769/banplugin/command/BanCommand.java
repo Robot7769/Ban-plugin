@@ -1,10 +1,11 @@
-package robot7769.banplugin;
+package robot7769.banplugin.command;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
+import robot7769.banplugin.Main;
 
 
 public class BanCommand implements CommandExecutor {

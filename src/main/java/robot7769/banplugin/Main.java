@@ -1,6 +1,7 @@
 package robot7769.banplugin;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import robot7769.banplugin.command.BanCommand;
 
 public final class Main extends JavaPlugin {
 
