@@ -1,7 +1,7 @@
 ban-msg: "You are banned from this server."
 
 #Bloked IP addresses
-blocked-ips:
+blocked-addresses:
   - "141.98.255.0/24"
   - "146.70.74.0/24"
   - "193.32.0.0/16"
