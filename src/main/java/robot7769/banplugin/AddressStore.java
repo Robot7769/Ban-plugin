@@ -48,6 +48,10 @@ public class AddressStore {
         plugin.saveConfig();
     }
 
+    public List<String> getBlockedAddresses() {
+        return blockedAddresses;
+    }
+
     private int[] addressToInteger(String address) {
         address = address.split("/")[0];
         int[] a = new int[4];

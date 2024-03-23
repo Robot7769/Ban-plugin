@@ -9,3 +9,7 @@ commands:
         description: IP-Ban more IP address. IP prefix in format 192.168.15.0/24
         usage: /<command> <IP-prefix>
         permission: banplugin.ban
+    ban-list:
+        description: List all banned IP prefixes
+        usage: /<command>
+        permission: banplugin.list
