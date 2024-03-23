@@ -1,0 +1,11 @@
+name: Ban
+version: '${version}'
+main: robot7769.banplugin.Main
+api-version: '1.20'
+author: Robot7769
+description: Ban plugin
+commands:
+    ban-more:
+        description: IP-Ban more IP address. IP prefix in format 192.168.15.0/24
+        usage: /<command> <IP-prefix>
+        permission: banplugin.ban
