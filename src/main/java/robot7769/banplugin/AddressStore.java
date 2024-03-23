@@ -23,6 +23,8 @@ public class AddressStore {
     }
     public void removeBlockedAddress(String address) {
     }
-    private void save() {
+    public void save() {
+        plugin.getConfig().set("blocked-addresses", blockedAddresses);
+        plugin.saveConfig();
     }
 }
