@@ -19,9 +19,12 @@ public class AddressStore {
         return true;
     }
     public void addBlockedAddress(String address) {
-
+        if (!blockedAddresses.contains(address)) {
+            blockedAddresses.add(address);
+        }
     }
     public void removeBlockedAddress(String address) {
+        blockedAddresses.remove(address);
     }
     public void save() {
         plugin.getConfig().set("blocked-addresses", blockedAddresses);
