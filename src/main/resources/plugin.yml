@@ -8,15 +8,15 @@ commands:
     ban-more:
         description: IP-Ban more IP address. IP prefix in format 192.168.15.0/24
         usage: /<command> <IP-prefix>
-        aliases: banmore, ipbanmore, ban-ip
+        aliases: [banmore, ipbanmore, ban-ip]
         permission: banplugin.ban
     ban-list:
         description: List all banned IP prefixes
         usage: /<command>
-        aliases: banlist, ipbanlist
+        aliases: [banlist, ipbanlist]
         permission: banplugin.list
     unban-more:
         description: Unban IP address. IP prefix in format 192.168.15.0/24 use /ban-list to get list of banned IP prefixes
         usage: /<command> <IP-prefix>
-        aliases: unbanmore, ipunbanmore, unban-ip
+        aliases: [unbanmore, ipunbanmore, unban-ip]
         permission: banplugin.unban
