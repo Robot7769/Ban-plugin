@@ -31,17 +31,22 @@ public class AddressStore {
         }
         return false;
     }
-    public void addBlockedAddress(String address) {
+    public boolean addBlockedAddress(String address) {
         if (!blockedAddresses.contains(address)) {
             blockedAddresses.add(address);
             save();
             updateLimit();
+            return true;
         }
+        return false;
     }
-    public void removeBlockedAddress(String address) {
-        blockedAddresses.remove(address);
-        save();
-        updateLimit();
+    public boolean removeBlockedAddress(String address) {
+        if (blockedAddresses.remove(address)) {
+            save();
+            updateLimit();
+            return true;
+        }
+        return false;
     }
     public void save() {
         plugin.getConfig().set("blocked-addresses", blockedAddresses);

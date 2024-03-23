@@ -5,6 +5,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import robot7769.banplugin.Main;
 
+import java.util.Objects;
+
 public class BanListCommand implements CommandExecutor {
 
     private Main plugin;
@@ -14,7 +16,7 @@ public class BanListCommand implements CommandExecutor {
     }
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        if (strings.length != 0 || !commandSender.hasPermission("banplugin.ban")) {
+        if (strings.length != 0 || !commandSender.hasPermission(Objects.requireNonNull(command.getPermission()))) {
             return false;
         }
         commandSender.sendMessage("Blocked addresses:");
